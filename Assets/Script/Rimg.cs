@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Rimg : MonoBehaviour
 {
-    public InputField cityp;
+    public InputField cityP;
     public InputField chushiP;
     public InputField chuanboValue;
     public InputField quanfuTime;
@@ -20,32 +20,46 @@ public class Rimg : MonoBehaviour
     private void Awake()
     {
         intance = this;
-        StarButton.onClick.AddListener(StarB);
+
         Debug.Log("2222");
+        Debug.Log(cityP.text);
     }
 
     public void StarB()
     {
-        Debug.Log("1111");
-    }
-
-
-
-
-
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        Debug.Log("开始");
         
+        //重置病毒数据
+        //Restlimg();
+        //创建人
+        city.instance.CreatePreson(int.Parse(cityP.text));
+       
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //将输入的数据传入
+    private void Restlimg()
     {
-        
+        virus.chushiP = int.Parse(chushiP.text);
+        virus.chuanboValue = int.Parse(chuanboValue.text);
+        virus.qianfuTime = int.Parse(quanfuTime.text);
+        virus.HosBed = int.Parse(Hosbed.text);
+        virus.HosTIme = int.Parse(HosTime.text);
+        virus.GoValue = int.Parse(Go.text);
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
 }
